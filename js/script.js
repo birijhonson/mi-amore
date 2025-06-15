@@ -129,5 +129,47 @@ document.addEventListener('DOMContentLoaded', function() {
         // Iniciar o efeito de digitação após um pequeno delay
         setTimeout(typeWriter, 500);
     }
-});
+    
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
 
+        // Adiciona o caractere de coração ao elemento
+        heart.innerHTML = '&#x2665;'; // Você também pode usar '♥'
+
+        // ---- Randomização das propriedades ----
+
+        // 1. Posição horizontal distinta
+        heart.style.left = Math.random() * 100 + 'vw';
+
+        // 2. Velocidade distinta (duração da animação)
+        // Duração entre 5 e 12 segundos
+        heart.style.animationDuration = (Math.random() * 7 + 5) + 's';
+
+        // 3. Tamanhos distintos
+        // Tamanho da fonte entre 10px e 30px
+        heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+
+        // 4. Opacidades distintas
+        // Opacidade inicial entre 0.3 e 1.0
+        heart.style.opacity = Math.random() * 0.7 + 0.3;
+        
+        // Adiciona o coração ao corpo do documento
+        document.body.appendChild(heart);
+
+        // Remove o elemento do coração da DOM após a animação terminar
+        // para evitar acúmulo e problemas de performance.
+        heart.addEventListener('animationend', () => {
+            heart.remove();
+        });
+    }
+
+    /**
+     * Inicia a criação de corações a cada intervalo de tempo.
+     * Altere o valor (em milissegundos) para gerar mais ou menos corações.
+     * 300ms = aproximadamente 3 corações por segundo.
+     */
+    setInterval(createHeart, 300);
+
+    // --- FIM: Código para Animação de Corações ---
+});

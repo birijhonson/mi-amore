@@ -306,3 +306,38 @@ header::before {
 .image-container:nth-child(2) { animation-delay: 1.1s; }
 .image-container:nth-child(3) { animation-delay: 1.3s; }
 
+/* --- INÍCIO: Código para Animação de Corações --- */
+
+@keyframes riseUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        /* Move o coração para um pouco acima da tela (110vh) para garantir que suma */
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px; /* Começa um pouco fora da tela, para uma entrada suave */
+    color: #e91e63; /* Cor principal dos corações */
+    font-size: 20px; /* Tamanho base, será alterado pelo JS */
+    
+    /* A animação 'riseUp' será aplicada, com duração definida pelo JS */
+    animation-name: riseUp;
+    animation-timing-function: linear;
+    
+    /* Garante que o coração não seja clicável e não atrapalhe outros elementos */
+    pointer-events: none;
+    
+    /* Define a opacidade inicial, que também será alterada pelo JS */
+    opacity: 1;
+
+    /* Coloca os corações no fundo, atrás do conteúdo principal */
+    z-index: -1; 
+}
+
+/* --- FIM: Código para Animação de Corações --- */
