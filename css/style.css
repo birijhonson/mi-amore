@@ -54,6 +54,7 @@ header {
     box-shadow: 0 4px 20px rgba(33, 150, 243, 0.3);
     position: relative;
     overflow: hidden;
+    z-index: 10
 }
 
 header::before {
